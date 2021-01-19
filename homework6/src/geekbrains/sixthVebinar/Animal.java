@@ -1,14 +1,29 @@
 package geekbrains.sixthVebinar;
 
+import java.text.DecimalFormat;
+
 public abstract class Animal {
 
-    public abstract void run (short distance);             // Верно ли я понимаю, что через @Override мы не можем изменить
-                                                           // количество передаваемых в метод параметров?
-    public abstract void run(String name, short distance); // И получается, что для создания метода, в который я хочу дополнительно
-                                                           // передавать имя животного, мне придется создать ещё 1 абстрактный метод (т.е. создавать перегрузку)?
-    public abstract void swim (short distance);            // Или можно каким-то образом через @Override переписать входные переменные для каждого отдельного случая?
+    public abstract void run (float distance);
 
-    public abstract void swim (String name, short distance);
+    public abstract void run(String name, float distance);
 
+    public abstract void swim (float distance);
+
+    public abstract void swim (String name, float distance);
 
 }
+/*Как привести ВСЕ значение в классе к одному стандарту? Напрмер к 0.000
+Я нашел несколько способов в (Decimal Format, Math.round), но везде
+описывается, как округлить только одно конкретное значение.
+Можно как-то округлить все сразу? Или хотя бы просто обрезать нули.
+И почему float значения меняются при исполнении программы?
+Например я задал 100.7, а вывелось 100.6999997.*/
+
+
+/*
+Прорезюмирую все вопросы последовательно, чтобы было удобнее ответить:
+1. Как в одном классе округлить все значения?
+2. Почему значения float сбиваются при компиляции программы?
+3. Какой из вариантов написания подкласса (Dog или Cat) более правильный (с прописыванием приватных полей или без)? Они оба справляются с поставленной задачей.
+*/
